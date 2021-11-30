@@ -11,9 +11,14 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@SequenceGenerator(
+        name = "FOOD_SEQ_GENERATOR",
+        sequenceName = "FOOD_SEQ", // 매핑할 데이터베이스 시퀀스 이름
+        initialValue = 1,
+        allocationSize = 1)
 @NoArgsConstructor
 public class Food {
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "FOOD_SEQ_GENERATOR")
     @Id
     private Long id;
     // 반드시 값을 가지도록 합니다.
