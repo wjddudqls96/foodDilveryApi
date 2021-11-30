@@ -1,6 +1,7 @@
 package com.spring.fooddeliverydev.model;
 
 import com.spring.fooddeliverydev.dto.FoodDto;
+import com.spring.fooddeliverydev.validator.FoodValidator;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,6 +28,7 @@ public class Food {
     private Restaurant restaurant;
 
     public Food(Restaurant restaurant, FoodDto foodDto){
+        FoodValidator.validateFoodInput(foodDto);
         this.name = foodDto.getName();
         this.price = foodDto.getPrice();
         this.restaurant = restaurant;
