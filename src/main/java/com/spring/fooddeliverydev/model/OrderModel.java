@@ -32,8 +32,8 @@ public class OrderModel {
     @Column(nullable = false)
     private int totalPrice;
 
-    public OrderModel(OrderDto orderDto, Long minOrderPrice){
-        if(minOrderPrice > orderDto.getTotalPrice()){
+    public OrderModel(OrderDto orderDto){
+        if(orderDto.getMinOrderPrice() > orderDto.getTotalPrice()){
             throw new IllegalArgumentException("최소주문 가격이 더 높습니다.");
         }
         List<FoodOrder> changefoods = new ArrayList<>();
@@ -44,6 +44,6 @@ public class OrderModel {
         this.restaurantName = orderDto.getRestaurantName();
         this.foods = changefoods;
         this.deliveryFee = orderDto.getDeliveryFee();
-        this.totalPrice = orderDto.getTotalPrice()+orderDto.getDeliveryFee();
+        this.totalPrice = orderDto.getTotalPrice()+ orderDto.getDeliveryFee();
     }
 }

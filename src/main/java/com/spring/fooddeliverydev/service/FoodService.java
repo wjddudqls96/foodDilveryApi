@@ -46,10 +46,9 @@ public class FoodService {
         }
     }
 
-    public List<FoodMapping> serviceGetRestaurantFoods(Long restaurantId){
+    public List<Food> serviceGetRestaurantFoods(Long restaurantId){
         Restaurant restaurant = restaurantRepository.findById(restaurantId).orElse(null);
-        List<FoodMapping> foodList = foodRepository.findAllByRestaurant(restaurant);
-
+        List<Food> foodList = foodRepository.findAllByRestaurant(restaurant);
         return  foodList;
     }
 }

@@ -28,8 +28,8 @@ public class Food {
     @Column(nullable = false)
     private Long price;
 
-    @ManyToOne
-    @JoinColumn(name = "RESTAURANT_ID", nullable = false)
+    @ManyToOne(targetEntity = Restaurant.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "Restaurant_ID", nullable = false)
     private Restaurant restaurant;
 
     public Food(Restaurant restaurant, FoodDto foodDto){

@@ -2,6 +2,7 @@ package com.spring.fooddeliverydev.controller;
 
 import com.spring.fooddeliverydev.dto.FoodDto;
 import com.spring.fooddeliverydev.mapping.FoodMapping;
+import com.spring.fooddeliverydev.model.Food;
 import com.spring.fooddeliverydev.service.FoodService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class FoodController {
     }
 
     @GetMapping("/restaurant/{restaurantId}/foods")
-    public List<FoodMapping> getRestaurantFoods(@PathVariable Long restaurantId){
+    public List<Food> getRestaurantFoods(@PathVariable Long restaurantId){
         return foodService.serviceGetRestaurantFoods(restaurantId);
     }
 }

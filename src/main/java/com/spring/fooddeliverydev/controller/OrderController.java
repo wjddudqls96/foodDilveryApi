@@ -50,8 +50,8 @@ public class OrderController {
         }
         System.out.println(restaurant.getName());
 //        sum += restaurant.getDeliveryFee();
-        OrderDto orderDto = new OrderDto(restaurant.getName(),foodOrderDtoList, Math.toIntExact(restaurant.getDeliveryFee()),sum);
-        OrderModel order = new OrderModel(orderDto,restaurant.getMinOrderPrice());
+        OrderDto orderDto = new OrderDto(restaurant,foodOrderDtoList,sum);
+        OrderModel order = new OrderModel(orderDto);
         orderRepository.save(order);
         return order;
     }

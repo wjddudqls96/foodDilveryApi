@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FoodRepository extends JpaRepository<Food,Long> {
-    List<FoodMapping> findAllByRestaurant(Restaurant restaurant);
+    List<Food> findAllByRestaurant(Restaurant restaurant);
     Optional<Food> findByName(String name);
     Optional<Food> findByNameAndRestaurant(String name,Restaurant restaurant);
 }
